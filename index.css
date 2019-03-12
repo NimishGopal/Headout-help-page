@@ -236,6 +236,7 @@ br{
     .category-block{
         max-height: 250px;
         overflow: hidden;
+        width: calc(100% - 60px);
     }
     .category-block h2 {
         margin: 15px 0 12.5px;
