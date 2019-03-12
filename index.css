@@ -243,7 +243,9 @@ br{
     }
     .search-bar-wrapper {
         margin: 0 auto;
-        width: calc(100% - 30px);;
+        width: calc(100% - 30px);
+        grid-template-columns: 30px auto;
+        grid-column-gap: 15px;
     }
     .search-bar-wrapper .search-options a {
         padding: 20px 30px;
