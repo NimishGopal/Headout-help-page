@@ -245,8 +245,8 @@ br{
         margin: 0 auto;
         width: calc(100% - 30px);;
     }
-    .search-bar-wrapper .search-options a{
-        margin: 15px 0;
+    .search-bar-wrapper .search-options a {
+        padding: 20px 30px;
     }
     .category-block-wrapper{
         padding: 20px 0 30px;
