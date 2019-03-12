@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="heading-wrapper">
+        <div class="logo-wrapper">
+            <img src="https://static.knowledgebase.ai/upload/8339531/17edf77b09-ea68e66b9576f18118a4.png"
+                alt="headout-logo">
+        </div>
+        <div class="search-wrapper">
+            <h1 class="page-heading">Hi, how can <br>we help?</h1>
+            <div class="search-bar">
+                <img src="https://cdn-imgix-open.headout.com/Home%20Page/noun-search-2017702@3x.png" alt="search-icon">
+                <input type="text" class="search" placeholder="Search help articles">
+            </div>
+        </div>
+    </div>
+    <div class="category-block-wrapper">
+        <div class="category-row">
+            <div class="category-block">
+                <img src="https://cdn-imgix-open.headout.com/Home%20Page/icons-8-ticket-100@3x.png" alt="booking-logo">
+                <h2>Booking</h2>
+                <div>
+                    <a href="/">Experience duration & start time</a>
+                    <a href="/">Inclusions & exclusions</a>
+                    <a href="/">Meeting point & pick-up directions</a>
+                    <a href="/">Meeting point information</a>
+                    <a href="/">Instant confirmation</a>
+                    <div class="show-all">Show all</div>
+                </div>
+            </div>
+            <div class="category-block">
+                <img src="https://cdn-imgix-open.headout.com/Home%20Page/icons-8-paper-money-100@3x.png"
+                    alt="booking-logo">
+                <h2>Payment</h2>
+                <div>
+                    <a href="/">Experience duration & start time</a>
+                    <a href="/">Inclusions & exclusions</a>
+                    <a href="/">Meeting point & pick-up directions</a>
+                    <a href="/">Meeting point information</a>
+                    <a href="/">Instant confirmation</a>
+                    <a href="/">Instant confirmation</a>
+                    <a href="/">Meeting point information</a>
+                    <a href="/">Instant confirmation</a>
+                    <a href="/">Instant confirmation</a>
+                    <div class="show-all">Show all</div>
+                </div>
+            </div>
+            <div class="category-block">
+                <img src="https://cdn-imgix-open.headout.com/Home%20Page/icons-8-event-declined-100@3x.png"
+                    alt="booking-logo">
+                <h2>Cancellation & Refund</h2>
+                <div>
+                    <a href="/">Experience duration & start time</a>
+                    <a href="/">Inclusions & exclusions</a>
+                    <a href="/">Meeting point & pick-up directions</a>
+                    <a href="/">Meeting point information</a>
+                    <a href="/">Instant confirmation</a>
+                    <a href="/">Instant confirmation</a>
+                    <a href="/">Meeting point information</a>
+                    <a href="/">Instant confirmation</a>
+                    <a href="/">Instant confirmation</a>
+                    <div class="show-all">Show all</div>
+                </div>
+            </div>
+        </div>
+        <div class="category-row">
+            <div class="category-block">
+                <img src="https://cdn-imgix-open.headout.com/Home%20Page/icons-8-event-100@3x.png" alt="booking-logo">
+                <h2>Booking Modification</h2>
+                <div>
+                    <a href="/">Experience duration & start time</a>
+                    <a href="/">Inclusions & exclusions</a>
+                    <a href="/">Meeting point & pick-up directions</a>
+                    <div class="show-all">Show all</div>
+                </div>
+            </div>
+            <div class="category-block">
+                <img src="https://cdn-imgix-open.headout.com/Home%20Page/icons-8-loyalty-card-100@3x.png"
+                    alt="booking-logo">
+                <h2>Coupons & Cashback</h2>
+                <div>
+                    <a href="/">Experience duration & start time</a>
+                    <a href="/">Inclusions & exclusions</a>
+                    <a href="/">Meeting point & pick-up directions</a>
+                    <a href="/">Meeting point information</a>
+                    <a href="/">Instant confirmation</a>
+                    <div class="show-all">Show all</div>
+                </div>
+            </div>
+            <div class="category-block">
+                <img src="https://cdn-imgix-open.headout.com/Home%20Page/icons-8-so-so-100@3x.png" alt="booking-logo">
+                <h2>General Queries</h2>
+                <div>
+                    <a href="/">Experience duration & start time</a>
+                    <a href="/">Inclusions & exclusions</a>
+                    <a href="/">Meeting point & pick-up directions</a>
+                    <a href="/">Meeting point information</a>
+                    <div class="show-all">Show all</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="help-block">
+        <div>
+            <h2>Still need help?</h2>
+            <div>
+                <a>EMAIL US</a>
+                <a>CALL US</a>
+                <a>START LIVE CHAT</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    //CHECK SCREEN SIZE
+    const isSmallScreen = (screenSize) => {
+        if (screenSize < 768) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    const hideShowAllElements = (targetBlock, showEle) => {
+        targetBlock.classList.add('expand-block');
+
+        showEle.classList.remove('display-block');
+        //FOR DESKTOP HIDE ALL SHOW ALL ELEMENTS
+        // if (!isSmallScreen(window.innerWidth)) {
+        //     let showAllElements = document.getElementsByClassName('show-all');
+        //     Array.from(showAllElements).forEach((hide) => {
+        //         hide.classList.remove('display-block');
+        //     });
+        // }
+        // else {
+        //     showEle.classList.remove('display-block');
+        // }
+    }
+
+    const displayShowAllElements = (ele) => {
+        let lastElement = ele.children[maxAllowedElements - 2];
+        //CHECK IF WE WANT CATEGORY ROW OR CATEGORY BLOCK
+        let targetBlock = ele.parentElement;
+        let targetEle = ele.lastChild.previousElementSibling;
+        targetEle.classList.add('display-block');
+        targetEle.addEventListener('click', () => hideShowAllElements(targetBlock, targetEle));
+    }
+
+    let maxAllowedElements = 6;
+    let categoryBlocks = document.querySelectorAll('.category-block > div');
+    categoryBlocks.forEach((ele) => {
+        if (ele.childElementCount > maxAllowedElements) {
+            displayShowAllElements(ele);
+        }
+    });
+</script>
+
+</html>
