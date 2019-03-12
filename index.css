@@ -40,7 +40,7 @@ html, body{
     place-items: center;
     grid-row-gap: 30px;
 }
-.search-bar{
+.search-bar-wrapper{
     width: 565px;
     height: 30px;
     border-radius: 4px;
@@ -54,14 +54,15 @@ html, body{
     grid-column-gap: 10px;
     place-items: center;
     padding: 15px;
+    position: relative;
 }
-.search-bar img {
+.search-bar-wrapper img {
   width: 18.3px;
   height: 18.3px;
   object-fit: contain;
   opacity: 0.6;
 }
-.search{
+.search-bar{
     width: 100%;
     height: 100%;
     border: none; 
@@ -73,10 +74,10 @@ html, body{
     letter-spacing: normal;
     color: var(--greyish-brown);
 }
-.search:focus{
+.search-bar:focus{
     outline: none;
 }
-.search::placeholder { 
+.search-bar::placeholder { 
     opacity: 0.6;
     font-family: Graphik;
     font-size: 16px;
@@ -87,6 +88,20 @@ html, body{
     letter-spacing: normal;
     color: var(--greyish-brown);
   }
+.search-options{
+    display: none;
+    position: absolute;
+    top: calc(100% + 20px);
+    width: calc(100% - 60px);
+    background-color: #FFF;
+    border-radius: 4px;
+    padding: 0 30px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    z-index: 1;
+}
+.search-bar-wrapper .search-options a{
+    margin: 25px 0;
+}
   .category-block-wrapper{
       padding: 60px 0 80px;
       max-width: 1200px;
@@ -109,7 +124,7 @@ html, body{
 .category-block img{
     width: 50px;
 }
-.category-block h2 {
+.category-block h2, .search-options a {
     font-family: Graphik;
     font-size: 22px;
     font-weight: 500;
@@ -120,6 +135,7 @@ html, body{
     text-align: left;
     color: var(--greyish-brown);
     margin: 30px 0 25px;
+    text-decoration: none;
 }
 .category-block > div{
     display: grid;
@@ -184,13 +200,14 @@ html, body{
   line-height: 1.29;
   letter-spacing: normal;
   text-align: left;
-  color: var(--greyish-brown)
+  color: var(--greyish-brown);
+  text-decoration: none;
 }
 .show-all{
     color: rgb(36,161,178) !important;
     display: none;
     position: absolute;
-    top: calc(320px - 22px);
+    top: calc(320px - 20px);
     width: 100%;
     background-color: #FFF;
 }
@@ -220,9 +237,12 @@ br{
         margin: 0 auto;
         place-items: unset;
     }
-    .search-bar {
+    .search-bar-wrapper {
         margin: 0 auto;
         width: calc(100% - 30px);;
+    }
+    .search-bar-wrapper .search-options a{
+        margin: 15px 0;
     }
     .category-block-wrapper{
         padding: 20px 0 30px;
