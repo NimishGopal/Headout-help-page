@@ -3,16 +3,6 @@ const hideShowAllElements = (targetBlock, showEle) => {
     targetBlock.classList.add('expand-block');
 
     showEle.classList.remove('display-block');
-    //FOR DESKTOP HIDE ALL SHOW ALL ELEMENTS
-    // if (!isSmallScreen(window.innerWidth)) {
-    //     let showAllElements = document.getElementsByClassName('show-all');
-    //     Array.from(showAllElements).forEach((hide) => {
-    //         hide.classList.remove('display-block');
-    //     });
-    // }
-    // else {
-    //     showEle.classList.remove('display-block');
-    // }
 }
 
 const displayShowAllElements = (ele) => {
