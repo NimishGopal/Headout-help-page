@@ -1,0 +1,841 @@
+<style>
+    body {
+        background-color: #FFF;
+    }
+
+    :root {
+        --greyish-brown: #545454;
+        --cutter: 130em;
+
+    }
+
+    .logo-wrapper {
+        display: grid;
+        align-self: center;
+        justify-self: flex-start;
+        width: 100%;
+        max-width: var(--cutter);
+        margin: 0 auto;
+        padding: 0 9px;
+    }
+
+    .logo-wrapper>a>img {
+        width: 140px;
+    }
+
+    .heading-wrapper {
+        display: grid;
+        align-items: center;
+        height: 360px;
+        grid-template-rows: 60px auto;
+        background-image: url(https://cdn-imgix-open.headout.com/Home%20Page/denys-nevozhai-185489-unsplash.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .page-heading {
+        font-family: Graphik;
+        font-size: 38px;
+        font-weight: 500;
+        line-height: 1.32;
+        color: #ffffff;
+        margin: 0;
+    }
+
+    .search-wrapper {
+        display: grid;
+        align-items: center;
+        grid-row-gap: 30px;
+        min-width: 1050px;
+        margin: 0 auto;
+    }
+
+    .search-bar-wrapper {
+        width: 565px;
+        border-radius: 4px;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        background-color: #ffffff;
+        padding: 0;
+        border: 0;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 50px auto;
+        grid-column-gap: 10px;
+        place-items: center;
+        padding: 20px 15px;
+        position: relative;
+    }
+
+    .search-bar-wrapper img {
+        width: 18.3px;
+        object-fit: contain;
+        opacity: 0.6;
+    }
+
+    .search-bar {
+        width: 100%;
+        height: 100%;
+        border: none;
+        font-size: 16px;
+        color: var(--greyish-brown);
+    }
+
+    .search-bar:focus {
+        outline: none;
+    }
+
+    .search-bar::placeholder {
+        opacity: 0.6;
+        font-family: Graphik;
+        font-size: 16px;
+        color: var(--greyish-brown);
+        line-height: 16px;
+    }
+
+    .search-options {
+        display: none;
+        position: absolute;
+        top: calc(100% + 20px);
+        width: 100%;
+        background-color: #FFF;
+        border-radius: 4px;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        z-index: 1;
+    }
+
+    .search-bar-wrapper .search-options a {
+        padding: 25px 30px;
+        border-bottom: 1px solid #ebebeb;
+        margin: 0;
+        font-family: Graphik;
+        font-size: 18px;
+        line-height: 1.27;
+        letter-spacing: normal;
+        text-align: left;
+        color: var(--greyish-brown);
+        text-decoration: none;
+    }
+
+    .search-bar-wrapper .search-options a:hover {
+        background-color: rgba(36, 161, 178, 0.2);
+    }
+
+    .cancel-cta {
+        position: absolute;
+        z-index: 3;
+        right: 20px;
+        filter: invert(1);
+        display: none;
+    }
+
+    .category-block-wrapper {
+        padding: 60px 0 80px;
+        max-width: max-content;
+        margin: 0 auto;
+        display: grid;
+        grid-row-gap: 60px;
+    }
+
+    .category-row {
+        display: grid;
+        grid-auto-flow: column;
+        grid-column-gap: 150px;
+    }
+
+    .category-block {
+        display: grid;
+        grid-template-rows: repeat(3, max-content);
+        position: relative;
+        max-height: 290px;
+        overflow: hidden;
+        min-width: 250px;
+    }
+
+    .category-block img {
+        width: 50px;
+    }
+
+    .category-block h2 {
+        font-family: Graphik;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 1.27;
+        color: var(--greyish-brown);
+        margin: 30px 0 0;
+        text-decoration: none;
+    }
+
+    .divider {
+        width: 60px;
+        margin: 10px 0 30px;
+        height: 3px;
+        background-color: #ec1943;
+    }
+
+    .category-block>div {
+        display: grid;
+        grid-row-gap: 22px;
+    }
+
+    .category-block>div:first-of-type {
+        position: relative;
+        grid-row-gap: unset;
+    }
+
+    .category-block>div a,
+    .category-block>div .show-all {
+        font-family: Graphik;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.31;
+        color: var(--greyish-brown);
+        text-decoration: none;
+    }
+
+    .category-block>div a:hover {
+        color: #ec1943;
+    }
+
+    .help-block {
+        width: 100%;
+        height: 140px;
+        background-color: #f8f8f8;
+        display: grid;
+        align-items: center;
+    }
+
+    .help-block>div {
+        max-width: var(--cutter);
+        padding: 0 9px;
+        width: 100%;
+        justify-self: flex-start;
+        margin: 0 auto;
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+        grid-template-columns: auto max-content;
+    }
+
+    .help-block>div>h2 {
+        margin: 0;
+        font-family: Graphik;
+        font-size: 22px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.27;
+        letter-spacing: normal;
+        text-align: left;
+        color: var(--greyish-brown);
+    }
+
+    .help-block>div>div {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: repeat(3, 174px);
+        grid-column-gap: 20px;
+        position: relative;
+    }
+
+    .help-block-btn {
+        height: 50px;
+        border-radius: 4px;
+        border: solid 1px #ebebeb;
+        background-color: #ffffff;
+        display: grid;
+        place-items: center;
+        font-family: Graphik;
+        font-size: 14px;
+        line-height: 1.29;
+        color: var(--greyish-brown);
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .help-pop-up {
+        position: absolute;
+        bottom: calc(100% + 10px);
+        right: 0;
+        background-color: #FFF;
+        z-index: 1;
+        padding: 20px 30px;
+        width: max-content;
+        display: none;
+        grid-row-gap: 20px;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.08);
+    }
+
+    .help-pop-up h2 {
+        display: none;
+    }
+
+    .help-pop-up .divider {
+        display: none;
+    }
+
+    .help-pop-up>a {
+        display: grid;
+        place-items: center;
+        grid-template-columns: 30px auto;
+        grid-column-gap: 20px;
+        text-decoration: none;
+    }
+
+    .help-pop-up>a>img {
+        width: 100%;
+        height: 20px;
+        object-fit: contain;
+    }
+
+    .help-pop-up>a>span {
+        font-family: Avenir;
+        font-size: 14px;
+        line-height: 1.36;
+        color: var(--greyish-brown);
+    }
+
+    .pop-up-cancel-cta {
+        position: absolute;
+        filter: invert(1);
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+    }
+
+    .pop-up-cancel-cta>img {
+        width: 10px;
+        height: 10px;
+    }
+
+    .show-all {
+        color: #ec1943 !important;
+        display: none;
+        position: absolute;
+        top: calc(290px - 20px);
+        width: 100%;
+        background-color: #FFF;
+        cursor: pointer;
+    }
+
+    .display-block {
+        display: grid;
+    }
+
+    .expand-block {
+        max-height: 1000px;
+    }
+
+    br {
+        display: none;
+    }
+
+    @media(max-width: 768px) {
+        .heading-wrapper {
+            padding: 0 30px;
+        }
+
+        .logo-wrapper {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .page-heading {
+            font-size: 36px;
+        }
+
+        .search-wrapper {
+            grid-row-gap: 15px;
+            width: 100%;
+            margin: 0 auto;
+            place-items: unset;
+            min-width: unset;
+        }
+
+        .search-bar-wrapper {
+            margin: 0 auto;
+            width: 100%;
+            grid-template-columns: 30px auto;
+            grid-column-gap: 15px;
+            padding: 15px;
+        }
+
+        .search-bar {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .search-bar::placeholder {
+            line-height: 24px;
+        }
+
+        .search-bar-wrapper .search-options a {
+            padding: 20px 30px;
+        }
+
+        .category-block-wrapper {
+            padding: 60px 30px;
+            grid-row-gap: 60px;
+            max-width: unset;
+        }
+
+        .category-row {
+            height: auto;
+            grid-auto-flow: row;
+            grid-row-gap: 60px;
+        }
+
+        .category-block {
+            max-height: 210px;
+            overflow: hidden;
+            width: calc(100% - 60px);
+        }
+
+        .category-block h2 {
+            margin: 0;
+        }
+
+        .divider {
+            margin: 10px 0 25px;
+        }
+
+        .category-block>div {
+            grid-row-gap: 11px;
+        }
+
+        .help-block {
+            height: auto;
+            padding: 60px 0 calc(5em + 60px);
+        }
+
+        .help-block>div {
+            min-width: unset;
+            grid-auto-flow: row;
+            grid-template-columns: unset;
+            place-items: center;
+        }
+
+        .help-block>div>h2 {
+            padding: 0px 0 15px;
+        }
+
+        .help-block>div>div {
+            grid-auto-flow: row;
+            grid-template-columns: unset;
+            grid-row-gap: 15px;
+            place-items: center;
+            position: static;
+            min-width: 180px;
+        }
+
+        .help-block>div>div>a,
+        .help-block>div>div>div {
+            height: auto;
+            width: 100%;
+            padding: 15px 30px;
+
+        }
+
+        .help-block .help-pop-up {
+            position: static;
+            grid-template-rows: repeat(5, 50px);
+            place-items: center;
+            grid-row-gap: 25px;
+            border-radius: 1px;
+            border: solid 0.5px #ebebeb;
+            grid-template-columns: max-content;
+            display: grid;
+            box-shadow: none;
+            border: none;
+            margin: 80px auto 0;
+        }
+
+        .help-block .mobile-pop-up {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            padding: 0;
+            background-color: #FFF;
+            display: none;
+            justify-content: center;
+        }
+
+        .help-pop-up h2 {
+            display: block;
+            margin: 0;
+            font-family: Graphik;
+            font-size: 14px;
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.29;
+            letter-spacing: normal;
+            text-align: center;
+            color: #545454;
+        }
+
+        .help-pop-up .divider {
+            display: block;
+            margin: 5px auto 35px;
+        }
+
+        .help-pop-up>a {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+            border-radius: 1px;
+            border: solid 0.5px #ebebeb;
+            padding: 0 20px;
+        }
+
+        .pop-up-cancel-cta {
+            top: 20px;
+            right: 20px;
+        }
+
+        .pop-up-cancel-cta>img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .show-all {
+            top: calc(210px - 22px);
+        }
+
+        body .help-block .display-block {
+            display: grid;
+        }
+
+        .expand-block {
+            max-height: 1000px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .hide-body-elements {
+            height: 100%;
+            overflow: hidden;
+            width: 100%;
+            position: fixed;
+        }
+
+        br {
+            display: block;
+        }
+    }
+</style>
+<div class="heading-wrapper">
+    <div class="logo-wrapper">
+        <a href="https://www.headout.com/"><img
+                src="https://cdn-imgix-open.headout.com/Home%20Page/headout-new-logo-horizontal@3x.png"
+                alt="headout-logo"></a>
+    </div>
+    <div class="search-wrapper">
+        <h1 class="page-heading">Hi, how can <br>we help?</h1>
+        <div class="search-bar-wrapper">
+            <img src="https://cdn-imgix-open.headout.com/Home%20Page/noun-search-2017702@3x.png" alt="search-icon">
+            <input type="text" class="search-bar" placeholder="Search help articles" onkeyup="searchArticle(this)">
+            <div class="search-options">
+            </div>
+            <div class="cancel-cta"><img
+                    src="https://cdn-imgix-open.headout.com/Home%20Page/noun-cancel-1580467@3x.png"></div>
+        </div>
+    </div>
+</div>
+<div class="category-block-wrapper">
+    <div class="category-row">
+        <div class="category-block">
+            <div>
+                <h2>Booking</h2>
+                <div class="divider"></div>
+            </div>
+            <div>
+                <a target="_blank"
+                    href="https://headout.kb.help/1-booking-details/experience-duration-start-time/">Experience
+                    duration & start time</a>
+                <a target="_blank" href="https://headout.kb.help/1-booking-details/inclusions-exclusions/">Inclusions &
+                    exclusions</a>
+                <a target="_blank"
+                    href="https://headout.kb.help/1-booking-details/meeting-point-pick-up-directions/">Meeting point
+                    & pick-up directions</a>
+                <a target="_blank" href="https://headout.kb.help/1-booking-details/meeting-point-information/">Meeting
+                    point
+                    information</a>
+                <a target="_blank" href="https://headout.kb.help/1-booking-details/instant-confirmation/">Instant
+                    confirmation</a>
+                <a target="_blank" href="https://headout.kb.help/1-booking-details/mobile-print-tickets/">Mobile & Print
+                    Tickets</a>
+                <div class="show-all">Show all</div>
+            </div>
+        </div>
+        <div class="category-block">
+            <div>
+                <h2>Payment</h2>
+                <div class="divider"></div>
+            </div>
+            <div>
+                <a target="_blank" href="https://headout.kb.help/2-payment/best-price-guarantee/">Best Price
+                    Guarantee</a>
+                <a target="_blank" href="https://headout.kb.help/2-payment/conversion-fee/">Conversion Fee</a>
+                <a target="_blank" href="https://headout.kb.help/2-payment/payment-currencies/">Payment Currencies</a>
+                <a target="_blank" href="https://headout.kb.help/2-payment/payment-methods/">Payment Methods</a>
+                <a target="_blank" href="https://headout.kb.help/2-payment/refund-information/">Refund Information</a>
+                <div class="show-all">Show all</div>
+            </div>
+        </div>
+        <div class="category-block">
+            <div>
+                <h2>Cancellation & Refunds</h2>
+                <div class="divider"></div>
+            </div>
+            <div>
+                <a target="_blank" href="https://headout.kb.help/3-cancellation-refunds/cancel-reservation/">Cancel
+                    Reservation</a>
+                <a target="_blank"
+                    href="https://headout.kb.help/3-cancellation-refunds/cancellation-deadline/">Cancellation
+                    Deadline</a>
+                <a target="_blank" href="https://headout.kb.help/3-cancellation-refunds/refund-information/">Refund
+                    Information</a>
+                <div class="show-all">Show all</div>
+            </div>
+        </div>
+    </div>
+    <div class="category-row">
+        <div class="category-block">
+            <div>
+                <h2>Booking Modification</h2>
+                <div class="divider"></div>
+            </div>
+            <div>
+                <a target="_blank"
+                    href="https://headout.kb.help/4-booking-modification/addremove-participant/">Add/Remove
+                    Participant </a>
+                <a target="_blank" href="https://headout.kb.help/4-booking-modification/changing-tour-options/">Changing
+                    tour
+                    options</a>
+                <a target="_blank"
+                    href="https://headout.kb.help/4-booking-modification/rescheduling-a-reservation/">Rescheduling a
+                    reservation</a>
+                <a target="_blank"
+                    href="https://headout.kb.help/4-booking-modification/update-participant-information/">Update
+                    Participant Information</a>
+                <div class="show-all">Show all</div>
+            </div>
+        </div>
+        <div class="category-block">
+            <div>
+                <h2>Coupons & Cashback</h2>
+                <div class="divider"></div>
+            </div>
+            <div>
+                <a target="_blank" href="https://headout.kb.help/5-coupons-cashback/coupon-code-not-working/">Coupon
+                    Code Not
+                    Working</a>
+                <a target="_blank" href="https://headout.kb.help/5-coupons-cashback/getting-cashback/">Getting
+                    Cashback</a>
+                <a target="_blank" href="https://headout.kb.help/5-coupons-cashback/using-cashback/">Using Cashback</a>
+                <a target="_blank" href="https://headout.kb.help/5-coupons-cashback/using-coupon-code/">Using Coupon
+                    Code</a>
+                <div class="show-all">Show all</div>
+            </div>
+        </div>
+        <div class="category-block">
+            <div>
+                <h2>General Queries</h2>
+                <div class="divider"></div>
+            </div>
+            <div>
+                <a href="https://headout.kb.help/6-general-queries/customise-an-experience/">Customise An
+                    Experience</a>
+                <a href="https://headout.kb.help/6-general-queries/gift-an-experience/">Gift an experience </a>
+                <a href="https://headout.kb.help/6-general-queries/headout-in-different-languages/">Headout in
+                    different languages</a>
+                <div class="show-all">Show all</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="help-block">
+    <div>
+        <h2>Still need help?</h2>
+        <div>
+            <a href="mailto:support@headout.com" class="help-block-btn">EMAIL US</a>
+            <div id="chat" class="help-block-btn">START LIVE CHAT</div>
+            <div id="call" class="help-block-btn">
+                <span>CALL US</span>
+
+            </div>
+            <div class="mobile-pop-up">
+                <div class="help-pop-up">
+                    <div class="pop-up-cancel-cta"><img
+                            src="https://cdn-imgix-open.headout.com/Home%20Page/noun-cancel-1580467@3x.png"></div>
+                    <div>
+                        <h2>Call us on our 24/7 helpline</h2>
+                        <div class="divider"></div>
+                    </div>
+                    <a href="tel:+1 347 897 0100">
+                        <img
+                            src="https://cdn-imgix-open.headout.com/Home%20Page/ea-96390-badabde-0-fcca-95-c-181-f-4-c-40-fe@3x.png">
+                        <span>+1 347 897 0100</span>
+                    </a>
+                    <a href="tel:+44 (20) 38747322">
+                        <img
+                            src="https://cdn-imgix-open.headout.com/Home%20Page/1280-px-flag-of-the-united-kingdom-svg@3x.png">
+                        <span>+44 (20) 38747322</span>
+                    </a>
+                    <a href="tel:+33 (1) 85640771">
+                        <img
+                            src="https://cdn-imgix-open.headout.com/Home%20Page/3759217-f-3-e-9-e-6131272-e-59295-d-8247-bc@3x.png">
+                        <span>+33 (1) 85640771</span>
+                    </a>
+                    <!-- <a href="tel:+31 (20) 8885223">
+                            <img
+                                src="https://cdn-imgix-open.headout.com/Home%20Page/6556-f-22164062-a-20-b-8-b-0-fc-77-a-7-f-45-e-7-f@3x.png">
+                            <span>+31 (20) 8885223</span>
+                        </a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const isSmallScreen = (screenSize) => {
+        if (screenSize < 768) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+</script>
+<script>
+    const hideShowAllElements = (targetBlock, showEle) => {
+        targetBlock.classList.add('expand-block');
+
+        showEle.classList.remove('display-block');
+    };
+
+    const displayShowAllElements = (ele) => {
+        let lastElement = ele.children[maxAllowedElements - 2];
+        let targetBlock = ele.parentElement;
+        let targetEle = ele.lastChild.previousElementSibling;
+        targetEle.classList.add('display-block');
+        targetEle.addEventListener('click', () => hideShowAllElements(targetBlock, targetEle));
+    };
+
+    let maxAllowedElements = 6;
+    let categoryBlocks = document.querySelectorAll('.category-block > div');
+    categoryBlocks.forEach((ele) => {
+        if (ele.childElementCount > maxAllowedElements) {
+            displayShowAllElements(ele);
+        }
+    });
+</script>
+<script defer src='https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js'></script>
+<script>
+    let fuse;
+    let searchResultBox = document.querySelector('.search-options');
+    let cancelbtn = document.querySelector('.cancel-cta');
+    let searchBar = document.querySelector('.search-bar');
+    const initialiseSearch = () => {
+        let options = {
+            shouldSort: true,
+            threshold: 0.2,
+            location: 0,
+            distance: 1000,
+            maxPatternLength: 32,
+            minMatchCharLength: 1,
+            keys: [
+                'title'
+            ],
+        };
+        let articleKeys = [];
+        let articles = document.querySelectorAll('.category-block > div a');
+        Array.from(articles).forEach((article) => {
+            articleKeys.push({
+                'title': article.innerHTML,
+                'outerHTML': article.outerHTML
+            });
+        });
+
+        fuse = new Fuse(articleKeys, options);
+    };
+    const searchArticle = (context) => {
+        searchResultBox.classList.add('display-block');
+        cancelbtn.classList.add('display-block');
+        let resultHTML = '';
+        let result = fuse.search(context.value);
+        result.forEach((ele) => {
+            resultHTML = resultHTML + ele.outerHTML;
+        });
+        searchResultBox.innerHTML = resultHTML;
+        (context.value == '') ? cancelbtn.classList.remove('display-block') : '';
+    };
+    const clearSearch = () => {
+        searchBar.value = '';
+        cancelbtn.classList.remove('display-block');
+        searchResultBox.classList.remove('display-block');
+    };
+    cancelbtn.addEventListener('click', clearSearch);
+    document.addEventListener('DOMContentLoaded', initialiseSearch);
+</script>
+<script>
+    const callButton = document.getElementById('call');
+    const popUp = (!isSmallScreen(window.innerWidth)) ? document.querySelector('.help-pop-up') : document.querySelector('.mobile-pop-up');
+    const popUpCancel = document.querySelector('.pop-up-cancel-cta');
+    const headingWrapper = document.querySelector('.heading-wrapper');
+    const catBlockWrapper = document.querySelector('.category-block-wrapper');
+    const helpBlock = document.querySelector('.help-block');
+    const helpBlockButton = helpBlock.querySelector('div > div > div').children;
+    let scrollPosition;
+    const hideDOMElements = () => {
+        scrollPosition = window.scrollY;
+        headingWrapper.classList.add('hide');
+        catBlockWrapper.classList.add('hide');
+        helpBlock.querySelector('div > h2').classList.add('hide');
+        Array.from(helpBlockButton).forEach((DOMElem) => {
+            if (DOMElem.className != 'help-pop-up') {
+                DOMElem.classList.add('hide');
+            }
+        });
+    };
+    showDOMElements = () => {
+        headingWrapper.classList.remove('hide');
+        catBlockWrapper.classList.remove('hide');
+        helpBlock.querySelector('div > h2').classList.remove('hide');
+        Array.from(helpBlockButton).forEach((DOMElem) => {
+            if (DOMElem.className != 'help-pop-up') {
+                DOMElem.classList.remove('hide');
+            }
+        });
+        window.scrollTo(0, scrollPosition);
+    };
+    const openPopUp = () => {
+        popUp.classList.add('display-block');
+        (isSmallScreen(window.innerWidth))?
+        hideDOMElements():'';
+    };
+    const closePopUp = () => {
+        popUp.classList.remove('display-block');
+        (isSmallScreen(window.innerWidth))?
+        showDOMElements():'';
+    };
+    callButton.addEventListener('click', openPopUp);
+    popUpCancel.addEventListener('click', closePopUp);
+</script>
+<script>
+    const openChatPopUp = () => {
+        window.LC_API.open_chat_window();
+    };
+    const openChat = () => {
+        if (window.LC_API && window.LC_API.open_chat_window) {
+            openChatPopUp();
+        }
+    };
+    const chatButton = document.getElementById('chat');
+    chatButton.addEventListener('click', openChat);
+</script>
